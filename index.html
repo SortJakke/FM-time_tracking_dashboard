@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Time tracking dashboard</title>
+
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div id="loading">Loading...</div>
+    <main class="content">
+      <section class="perfil">
+        <div class="perfil__info">
+          <img
+            src="./images/image-jeremy.png"
+            alt="Jeremy perfil image"
+            class="perfil__info--image"
+          />
+          <div class="perfil__info--text">
+            <h2 class="perfil__info--name">Jeremy Robson</h2>
+            <span class="perfil__info--span">Report for</span>
+          </div>
+        </div>
+        <div class="options">
+          <span id="daily" class="option active">Daily</span>
+          <span id="weekly" class="option">Weekly</span>
+          <span id="monthly" class="option">Monthly</span>
+        </div>
+      </section>
+
+      <div class="cards__section"></div>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noopener"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/SortJakke">Sortjakke</a>.
+    </footer>
+  </body>
+</html>

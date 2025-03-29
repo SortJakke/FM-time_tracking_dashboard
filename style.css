@@ -1,0 +1,250 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Perfil: hsl(246, 80%, 60%);
+  --Work: hsl(15, 100%, 70%);
+  --Play: hsl(195, 74%, 62%);
+  --Study: hsl(348, 100%, 68%);
+  --Exercise: hsl(145, 58%, 55%);
+  --Social: hsl(264, 64%, 52%);
+  --Self-Care: hsl(43, 84%, 65%);
+
+  --BG-main: hsl(226, 43%, 10%);
+  --BG-card: hsl(235, 46%, 20%);
+  --Primary-Color: hsl(236, 100%, 87%);
+  --Secundary-Color: hsl(235, 45%, 61%);
+
+  --Font: 300 18px "Rubik", sans-serif;
+}
+
+body {
+  background-color: var(--BG-main);
+  color: var(--Primary-Color);
+  font: var(--Font);
+
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+/* Loading */
+#loading {
+  background-color: var(--BG-main);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  z-index: 1000;
+}
+#loading.hidden {
+  display: none;
+}
+
+/* Main */
+.content {
+  width: 100vw;
+  display: grid;
+  gap: 1em;
+  padding: 2em;
+}
+
+/* Perfil */
+.perfil {
+  background-color: var(--BG-card);
+  width: 100%;
+  border-radius: 0.7em;
+  overflow: hidden;
+}
+.perfil__info {
+  height: 65%;
+  background-color: var(--Perfil);
+  border-radius: 0.7em;
+  padding: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.perfil__info--image {
+  width: 3em;
+  border: 2px solid var(--Primary-Color);
+  border-radius: 50%;
+}
+.perfil__info--text {
+  display: flex;
+  flex-direction: column-reverse;
+  font-size: 0.8em;
+}
+.perfil__info--name {
+  font-weight: 400;
+}
+
+/* Options */
+.options {
+  max-width: 300px;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: var(--Secundary-Color);
+
+  padding: 1em 2em;
+}
+.option:hover {
+  color: var(--Primary-Color);
+  transform: scale(1.1) translateX(5px);
+  cursor: pointer;
+}
+.options .active {
+  color: var(--Primary-Color);
+  transform: scale(1.1) translateX(5px);
+}
+
+/* Card */
+.cards__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.card {
+  background: var(--Work), var(--BG-card);
+  background-image: url(./images/icon-work.svg);
+  background-repeat: no-repeat;
+  background-size: 4em;
+  background-position: 90% -15%;
+  border-radius: 0.7em;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 2em;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: var(--BG-main);
+}
+.card__content {
+  background-color: var(--BG-card);
+  border-radius: 0.7em;
+  min-height: 75%;
+  padding: 1em;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.2em;
+  z-index: 1;
+}
+.card__id {
+  min-width: 100px;
+  font-weight: 400;
+  align-self: self-end;
+}
+.card__menu {
+  font-weight: 500;
+  justify-self: right;
+  align-self: self-end;
+}
+.card__current-hrs {
+  font-size: 1.5em;
+}
+.card__previous-hrs {
+  width: 120px;
+  font-size: 0.7em;
+  justify-self: right;
+  align-self: center;
+  text-align: right;
+}
+
+.card:hover .card__content {
+  filter: brightness(1.5);
+  cursor: pointer;
+}
+
+/* Footer */
+.attribution {
+  margin: 1em 0;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    max-width: 600px;
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .perfil {
+    grid-row: 1;
+  }
+
+  .cards__section {
+    grid-row: 2/5;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: calc(50% - 0.5em);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .content {
+    max-width: 870px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+  }
+  .perfil {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .perfil__info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .perfil__info--name {
+    font-size: 2em;
+    font-weight: 400;
+  }
+  .options {
+    flex-direction: column;
+  }
+
+  .cards__section {
+    grid-column: 2/5;
+    grid-row: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 185px;
+    aspect-ratio: 1/1;
+  }
+  .card__content {
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+  .card__previous-hrs {
+    grid-row: 3;
+    font-size: 0.7em;
+    justify-self: left;
+    align-self: center;
+    text-align: left;
+  }
+}
