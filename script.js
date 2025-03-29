@@ -73,10 +73,9 @@ function appendItem(item, option) {
   const card = document.createElement("div")
   card.classList.add("card")
   card.style.backgroundColor = `var(--${title.replace(" ", "-")})`
-  card.style.backgroundImage = `url(./images/icon-${title.replace(
-    " ",
-    "-"
-  )}.svg)`
+  card.style.backgroundImage = `url(./images/icon-${title
+    .replace(" ", "-")
+    .toLowerCase()}.svg)`
 
   card.innerHTML += `
       <div class="card__content">
